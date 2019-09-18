@@ -1,0 +1,58 @@
+import React from 'react'
+import {connect} from 'react-redux'
+import './sass/global.scss'
+import Layout from './layout/layout'
+import Login from './views/login/login'
+import SpinnerLoad from './components/spinnerLoad/spinnerLoad'
+
+class Hie extends React.Component {
+
+  state = {
+    loading:true
+  }
+
+  componentDidMount = () => {
+    
+    fetch('/app/testLogged')
+    .then(response => (response.json()))
+    .then(data => {
+      this.setState({loading:false})
+      //console.log(data)
+      data.Ok &&
+       this.props.isLogged(data.user)
+      // console.log(data)
+    })
+  }
+  
+  render(){
+    if(this.state.loading){
+      return (
+        <SpinnerLoad 
+          fullScreen 
+          size="big"/>
+      )
+    
+    }else if(this.props.logged){
+      
+        return <Layout />
+
+    }else{
+
+        return <Login />
+      
+    } 
+      
+  }
+}
+
+
+const mapDispatchToProps = dispatch => ({
+  isLogged: (user = {} ) => {
+    dispatch({
+      type: 'LOGGED', 
+      data: user
+    })
+  }
+})
+
+export default connect(state => (state.login), mapDispatchToProps)(Hie);

@@ -1,0 +1,20 @@
+@import '../../sass/colors';
+
+.team-members{
+  width: 100%;
+  h4{
+    margin-bottom: 1rem;
+  }
+  table{
+    width: 100%;
+    @media (max-width:991px) {
+      display: block;
+      overflow-x: auto;
+    }
+    td{
+      width: 30%;
+      & + td + td{ width: 40%; }
+      > a{ color:$secondary; text-decoration: none; }
+    }
+  }
+}

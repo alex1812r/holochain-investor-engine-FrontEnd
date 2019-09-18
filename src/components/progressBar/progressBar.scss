@@ -1,0 +1,59 @@
+@import '../../sass/colors';
+
+.progress-bar {
+  width: 100%;
+  position: relative;
+  background-color: rgb(250, 237, 237);
+  height: 7px;
+
+  > .progress {
+    display: inline-block;
+    height: 100%;
+    transition: width .4s ease-in-out; 
+    background: linear-gradient(to right,$secondary,$primary);
+    
+    > div {
+      content:'';
+      border: 3px solid $light-gray;
+      border-radius:50%;
+      position:absolute;
+      height: 2.5rem;
+      width: 2.5rem;
+      transform:translate(-50%,-50%);
+      background-color:$primary;
+      left:100%;
+      top:50%;
+      color:$light-gray;
+      font-size: .5rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  }
+  
+  &.shine{
+    > .progress{
+      position: absolute;
+      &::after{
+        content: '';
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #fff;
+        animation: animate-shine 2s ease-out infinite;     
+      }
+    }
+  }
+}
+
+
+@keyframes animate-shine {
+0% {opacity: 0; width: 0;}
+50% {opacity: .5;}
+100% {opacity: 0; width: 90%;}
+}

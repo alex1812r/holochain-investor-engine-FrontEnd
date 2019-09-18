@@ -1,0 +1,35 @@
+@import '../../sass/colors';
+
+.projects-group{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  //justify-content: space-between;
+  > div{
+    width: 33.3333%;
+    padding: 0 .7rem;
+    margin-bottom: 1.5rem;
+    .to-add-project{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      border-radius: 20px;
+      height: 100%;
+      min-height: 15rem;
+      a{
+        text-decoration: none;
+        color: $primary
+      }
+    }
+    @media (max-width: 991px) {
+      width: 50%;
+
+    }
+    @media (max-width: 700px) {
+      width: 100%;
+      
+    }
+  }
+}

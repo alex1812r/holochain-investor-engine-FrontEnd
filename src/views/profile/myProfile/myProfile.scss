@@ -1,0 +1,36 @@
+#my-profile{
+  > section{ 
+    margin-bottom: 1rem; 
+    
+    > h4{
+      margin-bottom: 1rem;
+    }
+
+    &#user-data{
+      display: flex;
+      flex-wrap: wrap;
+      > .data{
+        width: 0;
+        flex-grow: 1;
+        //border:1px dashed red;
+        //width: 65%;
+      }
+      > .stats{
+        width: 35%;
+        //border:1px dashed black;
+      }
+    }
+
+    &#work-experience{
+      p{
+        margin-bottom: .5rem;
+        &.experience-date{
+          color: #ccc;
+        }
+      }
+    }
+
+  }
+  
+
+}

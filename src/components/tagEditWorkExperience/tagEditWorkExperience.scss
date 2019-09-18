@@ -1,0 +1,18 @@
+#tag-edit-workExperience{
+  //border:1px dashed red;
+  input,.control-select{
+    margin-bottom: 1rem;
+  }
+  input{
+    width: 100%;
+  }
+  .control-select{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    select{
+      width: 49.5%;
+    }
+  }
+  
+}

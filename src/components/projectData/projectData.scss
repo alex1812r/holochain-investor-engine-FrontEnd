@@ -1,0 +1,33 @@
+#project-data{
+  width: 100%;
+  //border: 1px dashed;
+  //max-height: 100%;
+ //height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+ >div{
+   width: 49%;
+   input,div.video-container,select,textarea{
+     width: 100%;
+   }
+   input,div.video-container,select,div.input-file{
+     margin-bottom: 1rem;
+   }
+   div.video-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid #ccc;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    height: 15.4rem;
+    img{
+      width: 25%;
+    }
+
+   }
+
+ }
+}

@@ -1,0 +1,41 @@
+@import '../../sass/colors.scss';
+
+.tag-user{
+  //border:1px dashed red;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  > .avatar{
+    display: block;
+  }
+  > .name-follow{
+    width: 0;
+    flex-grow: 1;
+    padding-left: 1rem;
+    //border:1px dashed black; 
+    > div{
+      //border:1px dashed blue;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: .2rem;
+      a{
+        text-decoration: none;
+        color: $primary;
+      }
+      > button{
+        padding: .5rem  2.5rem;
+      }
+    }
+
+    > span i{
+      color:#ccc;
+      margin-right: 5px;
+    }
+  }
+
+  > p{
+    margin-top: 1rem;
+    width: 100%;
+  }
+}

@@ -1,0 +1,41 @@
+.spinner-load{
+  &.big{
+    width: 5em;
+    height: 5em;
+  }
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  position: relative;
+  div{
+    box-sizing: border-box;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border:.2em solid transparent;
+    border-right-color: #99f9;
+    //border-left-color: #99f9;
+    animation: spinner .5s infinite linear;
+    &:nth-of-type(2){
+      animation-duration:.8s;
+    }
+  }
+}
+
+@keyframes spinner{
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+.spinner-page{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80vh;
+}

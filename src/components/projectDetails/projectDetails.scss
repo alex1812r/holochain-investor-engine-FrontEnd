@@ -1,0 +1,44 @@
+#project-details{
+  width: 100%;
+  > button{
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    &:first-child{ margin-bottom: 2rem; }
+    & + div{
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  .project-stats{
+    width: 100%;
+    display: flex;
+    margin-bottom: 1.5rem;
+    span{
+      font-weight: bold;
+    }
+    > div{
+      .stat-counter{
+        display: block;
+        font-size: 18px;
+        margin-bottom: .2rem;
+      }
+      text-align: center;
+      //border: 1px dashed;
+      width: 24%;
+    }  
+  }
+  .project-details-data{
+    margin-bottom: 1rem;
+    > span{
+      display: block;
+      margin-bottom: .7rem;
+      font-weight: bold;
+      span{
+        margin-left: .3rem;
+        font-weight: normal;
+      }
+    }
+    
+  }
+}

@@ -1,0 +1,44 @@
+@import './colors';
+
+$border:1px solid #ccc;
+$gradient: linear-gradient(to right,$secondary,$primary);
+$border-primary: 1px solid $primary;
+
+input,textarea,select{
+  border: $border;
+  background: none;
+  border-radius: 10px;
+  padding: .5rem 1rem;
+  color:$gray;
+}
+
+input,button,textarea,select{
+  outline: none;
+}
+
+button{
+  cursor: pointer;
+  background: none;
+  border: $border;
+  padding: .5rem 1rem;
+  text-align: center;
+  border-radius: 7px;
+  &.btn-big{
+    padding: .5rem 2.5rem;
+  }
+  &.btn-secondary{
+    color: $primary;
+    border: $border-primary;
+    &:hover{
+      color:#fff;
+      background: $gradient;
+    }
+  }
+  &.btn-primary{
+    color: #fff;
+    border: $border-primary;
+    //&:hover{
+    background: linear-gradient(to right,$secondary,$primary);
+    //}
+  }
+}

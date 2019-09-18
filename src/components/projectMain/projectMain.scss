@@ -1,0 +1,36 @@
+@import '../../sass/colors';
+
+#project-main{
+  width: 100%;
+  .project-name-document{
+    display: flex;
+    margin-bottom: 1.5rem;
+    .project-name-type{
+      width: 0;
+      flex-grow: 1;
+      span{
+        color:$secondary;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .video-container{
+    border: 1px solid #ccc;;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    > img{
+      width: 40%;
+      height: 40%;
+      object-fit: contain;
+    }
+    margin-bottom: 1rem;
+  }
+  > img{
+    margin-bottom: 1rem;
+  }
+}

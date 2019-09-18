@@ -1,0 +1,57 @@
+@import '../../sass/colors';
+
+#rea-controllers-group{
+  //border: 1px dashed;
+  > h4{
+    margin-bottom: 1rem;
+  }
+  .rea-controls{
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom:1px solid #ccc;
+  }
+
+  .add-control{
+    text-align: center;
+    button{
+      background: none;
+      padding: 0;
+      border: 0;
+      display: inline;
+      color: $primary;
+    }
+  }
+}
+
+.rea-controls{
+  display: flex;
+  flex-wrap: wrap;
+  .rea-inputs{
+    width: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    //border: 1px dashed red;
+    input{
+      width: 32%;
+      margin-bottom: 1rem;
+    }
+    textarea{
+      width: 100%;
+    }
+  }
+
+  .delete-control{
+    padding: 0 1rem;
+    max-width: 10%;
+    //border: 1px dashed blue;
+    button{
+      background: none;
+      padding: 0;
+      border: 0;
+      display: inline;
+    }
+  }
+  
+}

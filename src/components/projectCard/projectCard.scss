@@ -1,0 +1,81 @@
+@import '../../sass/colors';
+
+.project-card{
+  padding: 0;
+  //width: 33.33%;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  > .project-video{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 250px;
+    border-bottom:1px solid #cccc;
+    //border-radius: 10px;
+    padding: .7rem; 
+    > img{
+        height: 50%;
+      }
+  }
+  
+  > .project-wrap{
+    //border: 1px dashed red;
+    padding: 1rem .7rem ;
+
+    > .project-identification{
+      //border:1px dashed red;  
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: .2rem;
+      > .project-name{
+        //border: 1px dashed green;
+        width: 0;
+        flex-grow: 1;
+        a{ text-decoration: none; }
+        span{ color: $primary; font-weight: bold; }
+      }
+
+      > .project-controls{
+        width: 100px;
+        max-width: 30%;
+        //border: 1px dashed black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a,button{
+          display: inline-block;
+          padding: 0;
+          border:0;
+          border-radius: 0;
+          text-align: center;
+          font-size: 1rem;
+        }
+      }
+
+    }
+
+    > p{ margin-bottom: 1rem; & + div{ margin-bottom: 1rem; } }
+
+    > .raised-and-goal{
+      display: flex;
+      flex-flow: wrap row;
+      >div{
+        width: 50%;
+        text-align: center;
+        padding: 0 1rem;
+        span{ 
+          display: inline-block; 
+          width: 100%;
+          &:first-child{
+            font-size: 1.17rem;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+}
+          

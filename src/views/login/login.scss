@@ -1,0 +1,35 @@
+@import '../../sass/colors';
+
+#login{
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  width: 30%;
+  margin: auto;
+  //transform: translateY(-50%);
+  //border: 1px dashed red;
+  > h2{
+    color: $primary;
+    margin-bottom: 1rem;
+  }
+  > label{
+    display: inline-block;
+    margin-bottom: .2rem;
+  }
+  > input{
+    width: 100%;
+    //padding: .4rem 1rem;
+    margin-bottom: 1rem; 
+  }
+  #login-controls{
+    margin-top: .8rem;
+    display: flex;
+    > div{
+      color: red;
+      width: 0;
+      flex-grow: 1;
+      //border: 1px dashed black;
+      padding-right: 1rem;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import '../../sass/colors';
+
+#project-team-rea{
+  width: 100%;
+  //border:1px dashed blue;
+  background: #fff;
+  border-radius: 20px;
+  padding: 1rem 0;
+  > h4{
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+  }
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+    @media (max-width:991px) {
+      display: block;
+      overflow-x: auto;
+    }
+    thead{
+      background: rgba(skyblue,.2);
+      th{
+        padding: .5rem 1.5rem;
+      }
+    }
+    tbody{
+      padding: 1rem;
+      width: 100%;
+      td{
+        padding:1rem 1.5rem;
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+        button{
+          //outline: none;
+          border: 1px solid $primary;
+          border-radius: 20px;
+        }
+        i{ color: rgba(red,.4); }
+      }
+    }
+  }
+}

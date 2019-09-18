@@ -1,0 +1,8 @@
+@import '../../sass/colors';
+
+#wallet{
+  a:first-child{
+    color: $primary;
+    i{ color: $primary }
+  }
+}

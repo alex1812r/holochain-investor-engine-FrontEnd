@@ -1,0 +1,30 @@
+@import '../../sass/colors';
+
+.avatar{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  > .img-avatar{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    //margin-bottom: 10px;
+
+    > span , > img{
+      position: relative;
+      display: inline-block;
+      border-radius: 50%;
+      padding: .1rem;
+      border:2px solid #ccc; 
+      &.active{
+        border:2px solid $primary;
+      }
+    }
+
+  }
+ 
+  // > span{
+  //   font-size: 18px; 
+  // }
+}

@@ -1,0 +1,22 @@
+@import '../../../sass/colors';
+
+#project{
+  //border:1px dashed;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: wrap row;
+
+  > div{
+    margin-bottom: 1.5rem;
+    width: 100%;
+    &:first-child{
+      width: 0;
+      flex-grow: 1;
+      & + div{
+        margin-left: 2%;
+        width: 40%;
+      }
+    }
+  }
+
+}

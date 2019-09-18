@@ -1,0 +1,83 @@
+@import '../../sass/colors'; 
+
+#header{
+  display: flex;
+  flex-flow: wrap row;
+  width: 100%;
+  background: linear-gradient(to right, $secondary, $primary);
+  #header-logo{
+    width: 20%;
+    -webkit-box-shadow: 0px 0px 1.5px 0px #ccc;
+    -moz-box-shadow: 0px 0px 1.5px 0px #ccc;
+    box-shadow: 0px 0px 1.5px 0px #ccc;
+    padding: .5rem 1rem;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  #header-controls{
+    width: 0;
+    height: 100%;
+    max-height: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    //border: 2px dashed red;
+    padding: 0 2.5rem; 
+    #header-search-control{
+      position: relative;
+      width: 0;
+      flex-grow: 1;
+      //border:1px dashed orange;
+      input{
+        width: 100%;
+        height: 100%;
+        padding: 10px 2.2rem 10px 15px;
+        border: .5px solid #ccc;
+        border-radius: 20px;
+      }
+      i{
+        position: absolute;
+        right: 1rem;
+        top: .7rem;
+        font-size: 15px;
+        color:#ccc;
+      }
+    }
+    #header-nav-control{
+      width: 60%;
+      height: 100%;
+      padding-left:1rem;
+      //border: 1px dashed red;
+      nav{
+        height: 100%;
+        //border: 1px dashed green;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        > a,button{
+          height: 100%;
+          text-decoration: none;
+          color: #fff;
+          //border:1px solid #ccc;
+          font-size: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 1.5rem 1rem;
+          &:hover{
+            background-color: rgba($semi-white,.2);
+          }
+        }
+        a.active{ background-color: rgba($semi-white,.2); }
+        > button{
+          border:none;
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import '../../sass/colors';
+
+.tasks-control{
+  > h4{
+    margin-bottom: 2rem;
+  }
+  
+  >.tasks-container{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    > .task{
+      button{
+        padding: 0;
+        border: 0;
+        display: inline;
+        background: none;
+        i{
+          color: $secondary
+        }
+      }
+    }
+  }
+
+
+}

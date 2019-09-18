@@ -1,0 +1,44 @@
+@import '../../sass/colors';
+
+.team-members-controls{
+  > h4{
+    margin-bottom: 1rem;
+  }
+  .member-add-control{
+    text-align: center;
+    button{
+      display: inline;
+      background: none;
+      border: 0;
+      padding: 0;
+      color:$primary;
+    }
+  }
+  .member-control{
+    display: flex;
+    //flex-flow: row wrap;
+    margin-bottom: 1.5rem;
+    .member-inputs{
+      width: 0;
+      flex-grow: 1;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      input{
+        width: 32%;
+      }
+    }
+    .member-delete-control{
+      padding: 0 1rem;
+      //display: none;
+      max-width: 10%;
+      button{
+        display: inline;
+        background: none;
+        border: 0;
+        padding: 0;
+        //color: $primary;
+      }
+    }
+  }
+}

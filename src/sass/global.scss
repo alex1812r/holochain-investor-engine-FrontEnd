@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import './systemGrid';
+@import './colors';
+@import './inputs';
+
+*{
+  margin:0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  color: $gray;
+}
+
+
+body{
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.box{
+  width: 100%;
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 1.5rem;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(201,189,201,.07);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(201,189,201,.7);
+  box-shadow: 0px 0px 5px 1px rgba(201,189,201,.7);
+}
