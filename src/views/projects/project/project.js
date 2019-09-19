@@ -13,7 +13,7 @@ export default class Project extends React.Component{
   componentDidMount(){
     if(this.props.id){
       fetch(`/app/getProject?id=${this.props.id}`)
-      .then(response => (response.json()))
+      .then(response => response.json())
       .then(data => {
           if(data.Ok){ 
               //console.log('Response Data:',data.project)
@@ -64,7 +64,7 @@ export default class Project extends React.Component{
       return <SpinnerLoad fullScreen size="big" />  
     }
 
-    return (
+    return ( 
       <div id="project">
         <div>
           <ProjectMain

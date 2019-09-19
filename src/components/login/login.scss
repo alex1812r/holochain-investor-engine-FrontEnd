@@ -23,13 +23,16 @@
   }
   #login-controls{
     margin-top: .8rem;
-    display: flex;
     > div{
-      color: red;
-      width: 0;
-      flex-grow: 1;
-      //border: 1px dashed black;
-      padding-right: 1rem;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      a{
+        color: $primary;
+        font-weight: bold;
+        text-decoration: none;
+      }
     }
+    > span{ color:red; }
   }
 }

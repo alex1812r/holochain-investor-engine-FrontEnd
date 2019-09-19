@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import './sass/global.scss'
 import Layout from './layout/layout'
-import Login from './views/login/login'
+import Intro from './views/intro/intro'
 import SpinnerLoad from './components/spinnerLoad/spinnerLoad'
 
 class Hie extends React.Component {
@@ -38,7 +38,7 @@ class Hie extends React.Component {
 
     }else{
 
-        return <Login />
+        return <Intro />
       
     } 
       

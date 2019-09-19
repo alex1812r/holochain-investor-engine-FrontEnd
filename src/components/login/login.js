@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './login.scss'
 
 class Login extends React.Component{
@@ -75,9 +75,10 @@ class Login extends React.Component{
 
         <div id="login-controls">
           <div>
-            {this.state.message}
+            <Link to="/createAccount">Create new Account</Link>
+            <button type="submit" className="btn-primary">Sign In</button>
           </div>
-          <button type="submit" className="btn-primary">Sign In</button>
+          <span>{this.state.message}</span>
         </div>
       </form>
     )
