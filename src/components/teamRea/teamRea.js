@@ -2,7 +2,7 @@ import React from 'react'
 import './teamRea.scss'
 
 export default function TeamRea(props){
-  console.log('props :', props);
+  //console.log('props :', props);
   return(
     <div id="project-team-rea">
       <h4>Resource Event Agent Log ( REA )</h4>

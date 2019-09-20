@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter,Route,Switch} from 'react-router-dom'
-import Login from '../../components/login/login'
-import CreateAccount from '../../components/createAccount/createAccount'
+import Login from './login/login'
+import CreateAccount from './createAccount/createAccount'
 
 export default function Intro(){
   return(

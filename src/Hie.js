@@ -26,12 +26,13 @@ class Hie extends React.Component {
   
   render(){
     if(this.state.loading){
+
       return (
         <SpinnerLoad 
           fullScreen 
           size="big"/>
       )
-    
+      
     }else if(this.props.logged){
       
         return <Layout />

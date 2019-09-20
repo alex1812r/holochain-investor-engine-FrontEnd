@@ -1,6 +1,6 @@
 import React from 'react'
 import './createAccount.scss'
-import {Link} from 'react-router-dom' 
+import {Link} from 'react-router-dom'
 
 export default class CreateAccount extends React.Component{
 
@@ -8,7 +8,7 @@ export default class CreateAccount extends React.Component{
     email:'',
     password:'',
     password2:'',
-    message: ''
+    message: '',
   }
 
   handleOnChange = ({target}) => {
@@ -53,7 +53,7 @@ export default class CreateAccount extends React.Component{
   render(){
     return(
       <form id="create-account" className="box" onSubmit={this.handleCreateAccount}>
-        <Link to="/"><i className="far fa-arrow-alt-circle-left"></i></Link>
+        <Link to="/"><i className="fas fa-arrow-left"></i> Back</Link>
         <h4>Create Account</h4>
 
         <label htmlFor="">Email</label>

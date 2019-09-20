@@ -27,9 +27,11 @@ export default class Project extends React.Component{
     }
   }
 
-  handleInvest = () => {
+  handleInvest = data => {
     if(Object.keys(this.state).length){
-      fetch("/app/invest?name="+(this.state.name || this.state._id))
+      const url = `/app/invest?name=${this.state.name || this.state._id}&amount=${data.amount}&paymentOption=${data.paymentOption}&description=${data.description}`
+
+      fetch(url)
       .then(response => ( response.json() ))
       .then(data => {
           console.log('data :', data);
@@ -37,6 +39,7 @@ export default class Project extends React.Component{
             window.alert('Request send')
           }
       })
+
     }else{ window.alert('There is not project available') }
   } 
   

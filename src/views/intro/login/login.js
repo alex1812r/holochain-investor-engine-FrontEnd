@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './login.scss'
+import SpinnerLoad from '../../../components/spinnerLoad/spinnerLoad' 
 
 class Login extends React.Component{
 
@@ -15,6 +16,9 @@ class Login extends React.Component{
 
   handleOnSignIn = (e) => {
     e.preventDefault()
+    this.setState({
+      loading:true
+    })
     const email = this.email.current.value
     const password = this.password.current.value
 
@@ -34,6 +38,7 @@ class Login extends React.Component{
       if(data.Error){
       
         this.setState({
+          loading:false,
           message: data.Error
         })
       
@@ -43,6 +48,7 @@ class Login extends React.Component{
       
       }else{
         this.setState({
+          loading:false,
           message: "Password invalid"
         }) 
       }
@@ -78,7 +84,7 @@ class Login extends React.Component{
             <Link to="/createAccount">Create new Account</Link>
             <button type="submit" className="btn-primary">Sign In</button>
           </div>
-          <span>{this.state.message}</span>
+          <span>{(this.state.loading && <SpinnerLoad/>) || this.state.message }</span>
         </div>
       </form>
     )

@@ -165,7 +165,8 @@ export default class EditProject extends React.Component{
       body: fileData
     }).then(response => response.json())
     .then(data => {
-      console.log(data)
+      data.Ok ? window.alert('changes saved')
+      : console.log('data :', data)
     })
 
   }

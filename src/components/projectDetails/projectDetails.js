@@ -3,17 +3,45 @@ import './projectDetails.scss'
 import ProgressBar from  '../progressBar/progressBar'
 import Modal from '../../components/modal/modal'
 import TeamRea from '../teamRea/teamRea'
+import FormToInvest from '../formToInvest/formToInvest'
 
 export default class ProjectDetails extends React.Component{
 
   state = {
-    viewRea:false
+    viewRea:false,
+    toInvest:false,
+    dataToInvest:{
+
+    }
   }
 
   handleShowModal = () => {
     this.setState({
       viewRea: this.state.viewRea ? false : true
     })
+  }
+
+  handleShowModalToInvest = () => {
+    this.setState({
+      toInvest: this.state.toInvest ? false : true
+    })
+  }
+
+  handleOnChange = ({target}) => {
+    const {name,value} = target
+    this.setState({
+      dataToInvest: {
+        ...this.state.dataToInvest,
+        [name]: value
+      }
+    })
+  }
+
+  handleToInvest = e =>{
+    e.preventDefault()
+    e.currentTarget.reset()
+    this.props.handleInvest &&
+    this.props.handleInvest(this.state.dataToInvest) 
   }
 
   render(){
@@ -25,9 +53,8 @@ export default class ProjectDetails extends React.Component{
   
         <button 
           type="button" 
-          onClick={this.props.handleInvest && this.props.handleInvest } 
+          onClick={this.handleShowModalToInvest} 
           className="btn-primary"> INVEST </button>
-  
         <ProgressBar 
           progress={ ((this.props.budget / this.props.needed * 100) || 0).toFixed(2) }
         />
@@ -76,6 +103,17 @@ export default class ProjectDetails extends React.Component{
         Resource Event Agent Log
         </button>
   
+        <Modal 
+          active={this.state.toInvest}
+          hide={this.handleShowModalToInvest}
+          size="sm"
+        >
+          <FormToInvest
+            handleOnChange={this.handleOnChange}
+            handleOnSubmit={this.handleToInvest}
+          />
+        </Modal>
+
         <Modal 
           active={this.state.viewRea}
           hide={this.handleShowModal}>

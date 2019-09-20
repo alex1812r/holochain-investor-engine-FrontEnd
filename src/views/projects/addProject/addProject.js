@@ -107,7 +107,7 @@ export default class AddProject extends React.Component{
   handleOnChangeMember = (id,{target}) => {
     const {name, value} = target
     let teamMembers = this.state.teamMembers
-    console.log('teamMembers :', teamMembers);
+    //console.log('teamMembers :', teamMembers);
     teamMembers.forEach((member,i) => {
       if(i === id){member[name] = value}
     })
@@ -174,7 +174,8 @@ export default class AddProject extends React.Component{
       body: fileData
     }).then(response => response.json())
     .then(data => {
-      console.log(data)
+      data.Ok ? window.alert('project registered')
+      : console.log('data :', data);
     })
     
    this.handleResetForm(e)
@@ -188,6 +189,7 @@ export default class AddProject extends React.Component{
         <ProjectData
           document={this.document}
           image={this.image}
+          idYoutubeVideo={this.state.idYoutubeVideo}
           handleOnChange={this.handleOnChange}
           handleOnChangeUrlVideo={this.handleOnChangeUrlVideo}
         />

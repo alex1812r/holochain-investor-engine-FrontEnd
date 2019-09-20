@@ -1,4 +1,4 @@
-@import '../../sass/colors';
+@import '../../../sass/colors';
 
 #login{
   position: absolute;
@@ -26,6 +26,7 @@
     > div{
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin-bottom: 1rem;
       a{
         color: $primary;

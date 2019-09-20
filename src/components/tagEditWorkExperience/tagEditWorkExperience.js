@@ -32,7 +32,7 @@ export default function TagEditWorkExperience(props){
       <div className="control-select">
         <select
           name="month"
-          value={props.month || ""}
+          defaultValue={props.month || ""}
           onChange={props.handleOnChange &&  props.handleOnChange}
         >
         <option value="" disabled>Month</option>
@@ -45,7 +45,7 @@ export default function TagEditWorkExperience(props){
 
         <select
           name="year"
-          value={props.year || ""}
+          defaultValue={props.year || ""}
           onChange={props.handleOnChange &&  props.handleOnChange}
         >
         <option value="" disabled>year</option>
