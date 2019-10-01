@@ -10,6 +10,9 @@ input,textarea,select{
   border-radius: 10px;
   padding: .5rem 1rem;
   color:$gray;
+  &[disabled]{
+    background: rgba(#ccc,.5);
+  }
 }
 
 input,button,textarea,select{

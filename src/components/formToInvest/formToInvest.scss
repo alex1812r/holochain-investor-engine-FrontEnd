@@ -5,16 +5,17 @@
   background: #fff;
   border-radius:10px;
   padding: 1rem;
-  h4{
+  > h4{
     font-size: 1.5rem;
     color:$primary;
     margin-bottom: 1rem;
   }
-  input,textarea,select{
+  >input,textarea,select{
     width: 100%;
     margin-bottom: 1rem;
   }
   button{
     float: right;
+    margin-left: 10px; 
   }
 }

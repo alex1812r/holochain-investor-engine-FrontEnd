@@ -10,9 +10,21 @@ export default class ProjectDetails extends React.Component{
   state = {
     viewRea:false,
     toInvest:false,
-    dataToInvest:{
-
+    dataToInvest:{ 
+      amount: '',
+      paymentOption: '',
+      description: ''
     }
+  }
+
+  resetState = ()=>{
+    this.setState({
+      dataToInvest:{ 
+        amount: '',
+        paymentOption: '',
+        description: ''
+      }
+    })
   }
 
   handleShowModal = () => {
@@ -39,9 +51,23 @@ export default class ProjectDetails extends React.Component{
 
   handleToInvest = e =>{
     e.preventDefault()
-    e.currentTarget.reset()
+    this.resetState()
     this.props.handleInvest &&
-    this.props.handleInvest(this.state.dataToInvest) 
+    this.props.handleInvest(this.state.dataToInvest)
+  }
+
+  handleDeposit = e => {
+    e.preventDefault()
+    this.resetState()
+    this.props.handleDeposit &&
+    this.props.handleDeposit(this.state.dataToInvest)
+  }
+
+  handleRetire = e => {
+    //console.log('this.state.dataToInvest :', this.state.dataToInvest);
+    this.resetState()
+    this.props.handleRetire && 
+    this.props.handleRetire(this.state.dataToInvest)
   }
 
   render(){
@@ -54,7 +80,13 @@ export default class ProjectDetails extends React.Component{
         <button 
           type="button" 
           onClick={this.handleShowModalToInvest} 
-          className="btn-primary"> INVEST </button>
+          className="btn-primary"> 
+          {
+            this.props.investor.Ok 
+            ? "Deposit / Withdraw" : "INVEST"
+          }
+                     
+          </button>
         <ProgressBar 
           progress={ ((this.props.budget / this.props.needed * 100) || 0).toFixed(2) }
         />
@@ -109,9 +141,17 @@ export default class ProjectDetails extends React.Component{
           size="sm"
         >
           <FormToInvest
+            amount={this.state.dataToInvest.amount}
+            paymentOption={this.state.dataToInvest.paymentOption}
+            description={this.state.dataToInvest.description}
+            investor={this.props.investor}
             handleOnChange={this.handleOnChange}
             handleOnSubmit={this.handleToInvest}
+            handleInvest={this.handleToInvest}
+            handleRetire={this.handleRetire}
+            handleDeposit={this.handleDeposit}
           />
+            
         </Modal>
 
         <Modal 

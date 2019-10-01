@@ -12,6 +12,7 @@ export default class Earning extends React.Component{
     fetch('/app/myProjects')
     .then(r => r.json())
     .then(data => {
+      console.log('data :', data);
       if(data.Ok){
         this.setState({
           projects: data.projects

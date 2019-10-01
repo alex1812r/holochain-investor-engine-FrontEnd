@@ -58,10 +58,11 @@
     display: flex;
     justify-content: center;
     align-content: center;
+
     @media (min-width:992px){
       &.md{
-        left: 27.5%;
-        width: 45%;
+        left: 25%;
+        width: 50%;
       }
       &.sm{
         left: 32.5%;

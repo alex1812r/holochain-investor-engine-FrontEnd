@@ -8,7 +8,10 @@ import SpinnerLoad from '../../../components/spinnerLoad/spinnerLoad'
 
 export default class Project extends React.Component{
 
-  state = {}
+  state = {
+    investor:{},
+    project:{}
+  }
   
   componentDidMount(){
     if(this.props.id){
@@ -16,9 +19,10 @@ export default class Project extends React.Component{
       .then(response => response.json())
       .then(data => {
           if(data.Ok){ 
-              //console.log('Response Data:',data.project)
+              //console.log('Response Data:',data)
               this.setState({
-                  ...data.project
+                  investor:data.investor,
+                  project: data.project
               }) 
            }else{ 
                //console.log(data)
@@ -29,7 +33,7 @@ export default class Project extends React.Component{
 
   handleInvest = data => {
     if(Object.keys(this.state).length){
-      const url = `/app/invest?name=${this.state.name || this.state._id}&amount=${data.amount}&paymentOption=${data.paymentOption}&description=${data.description}`
+      const url = `/app/invest?name=${this.state.project.name || this.state.project._id}&amount=${data.amount}&paymentOption=${data.paymentOption}&description=${data.description}`
 
       fetch(url)
       .then(response => ( response.json() ))
@@ -43,6 +47,39 @@ export default class Project extends React.Component{
     }else{ window.alert('There is not project available') }
   } 
   
+  handleDeposit = data => {
+    if(Object.keys(this.state.project).length){
+      
+      const url = `/app/deposit?name=${this.state.project.name || this.state.project._id}&amount=${data.amount}&paymentOption=${data.paymentOption}`
+      
+      fetch(url)
+      .then(response => ( response.json() ))
+      .then(data => {
+          console.log('data :', data);
+          if(data.Ok){
+            window.alert('Request send')
+          }
+      })
+
+    }else{ window.alert('There is not project available') }
+  }
+
+  handleRetire = data => {
+    if(Object.keys(this.state.project).length){
+      const url = `/app/withdraw?name=${this.state.project.name || this.state.project._id}&amount=${data.amount}&paymentOption=${data.paymentOption}`
+
+      fetch(url)
+      .then(response => ( response.json() ))
+      .then(data => {
+          console.log('data :', data);
+          if(data.Ok){
+            window.alert('Request send')
+          }
+      })
+
+    }else{ window.alert('There is not project available') }
+  }
+
   handleDownloadDocument = (idDocument) =>{
     if(!idDocument){
       window.alert('There is not document')
@@ -63,40 +100,42 @@ export default class Project extends React.Component{
   
   render(){
     
-    if(!Object.keys(this.state).length){
+    if(!Object.keys(this.state.project).length){
       return <SpinnerLoad fullScreen size="big" />  
     }
-
     return ( 
       <div id="project">
         <div>
           <ProjectMain
-            name={this.state.name}
-            type={this.state.type}
-            idYoutubeVideo={this.state.idYoutubeVideo}
-            description={this.state.description}
-            idDocument={this.state.document && this.state.document.id }
-            idImage={this.state.image && this.state.image.id}
+            name={this.state.project.name}
+            type={this.state.project.type}
+            idYoutubeVideo={this.state.project.idYoutubeVideo}
+            description={this.state.project.description}
+            idDocument={this.state.project.document && this.state.project.document.id }
+            idImage={this.state.project.image && this.state.project.image.id}
             handleDownloadDocument={this.handleDownloadDocument}
           />
         </div>      
   
         <div>
-          <ProjectDetails 
-            budget={this.state.budget}
-            needed={this.state.needed}
-            funding={this.state.funding}
-            projectstart={this.state.projectstart}
-            projectend={this.state.projectend}
-            expected={this.state.expected}
-            reas={this.state.reas}
+          <ProjectDetails
+            budget={this.state.project.budget}
+            needed={this.state.project.needed}
+            funding={this.state.project.funding}
+            projectstart={this.state.project.projectstart}
+            projectend={this.state.project.projectend}
+            expected={this.state.project.expected}
+            reas={this.state.project.reas}
             handleInvest={this.handleInvest}
+            handleRetire={this.handleRetire}
+            handleDeposit={this.handleDeposit}
+            investor={this.state.investor}
           />
         </div>
         
         <div>
           <TeamMembers 
-            members={this.state.teamMembers}
+            members={this.state.project.teamMembers}
           />
         </div>
   
