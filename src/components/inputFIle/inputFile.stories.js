@@ -1,6 +1,7 @@
 import React from 'react'
 import InputFile from './inputFile'
+import { storiesOf } from '@storybook/react'
 
-export default { title: 'Input File' }
-
-export const Input = () => <InputFile label="INPUT FILE" /> 
+storiesOf('Input File', module)
+  .addDecorator( story => <> { story() } </> )
+  .add('input', () => <InputFile label="INPUT FILE" /> )

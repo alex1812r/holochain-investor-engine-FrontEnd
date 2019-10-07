@@ -5,7 +5,7 @@ import RoundedIcon from '../roundedIcon/roundeIcon'
 export default function TeamMemberControls(props){
   
   return(
-    <div className="team-members-controls box">
+    <div className={`team-members-controls ${props.className || ''}`}>
       <h4>Team Members</h4>
       
       {

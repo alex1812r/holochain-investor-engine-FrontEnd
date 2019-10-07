@@ -199,13 +199,15 @@ export default class EditProject extends React.Component{
         />
 
         <ReaControllersGroup 
+          className="box"
           reas={this.state.reas}
           handleAddRea={this.handleAddRea}
           handleDeleteRea={this.handleDeleteRea}
           handleOnChange={this.handleOnChangeRea}
         />
         
-        <TeamMembersControls 
+        <TeamMembersControls
+          className="box"
           members={this.state.teamMembers}
           handleAddMember={this.handleAddMember}
           handleDeleteMember={this.handleDeleteMember}
@@ -213,6 +215,7 @@ export default class EditProject extends React.Component{
         />
 
         <TasksControl
+          className="box" 
           tasks={this.state.tasks}
           handleAddTask={this.handleAddTask}
           handleFinishTask={this.handleFinishTask}

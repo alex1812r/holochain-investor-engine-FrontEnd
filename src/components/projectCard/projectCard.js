@@ -28,7 +28,13 @@ export default function ProjectCard(props){
         <div className="project-identification">
 
           <div className="project-name">
-            <h4><Link to={`/project/${props.id || ''}`}>{props.name || "NO NAME"}</Link></h4>
+            <h4>
+              {
+                props.id ?
+                <Link to={`/project/${props.id}`}>{props.name || "NO NAME"}</Link>
+                : (props.name || 'NO NAME')
+              }
+            </h4>
             <span>{props.type || "No Type"}</span>
           </div>
           {
@@ -36,16 +42,26 @@ export default function ProjectCard(props){
             
             <div className="project-controls">
               {
-                props.edit &&
-                <Link to={`/editProject/${props.id}`}>
-                  <RoundedIcon
-                    icon={<i className="far fa-edit"></i>}
-                  />
-                </Link>
+                props.edit && (
+                  props.id 
+                  ?
+                  <Link to={`/editProject/${props.id}`}>
+                    <RoundedIcon
+                      icon={<i className="far fa-edit"></i>}
+                    />
+                  </Link>
+                  : 
+                  <button type="button">
+                    <RoundedIcon
+                      icon={<i className="far fa-edit"></i>}
+                    />
+                  </button>
+                )
               }
+              
               {
                 props.delete && 
-                <button>
+                <button type="button">
                   <RoundedIcon
                     icon={<i className="far fa-trash-alt"></i>}
                   />
@@ -56,6 +72,7 @@ export default function ProjectCard(props){
         </div>
 
         <p> { props.description } </p>
+
         <ProgressBar 
           progress={progress}
         />

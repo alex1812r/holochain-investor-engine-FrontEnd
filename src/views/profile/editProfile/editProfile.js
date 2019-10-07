@@ -27,6 +27,7 @@ class EditProfile extends React.Component {
     const {name,value} = target
     this.setState({
       workExperience:{
+        ...this.state.workExperience,
         [name]:value
       } 
     })
@@ -35,7 +36,6 @@ class EditProfile extends React.Component {
   handleSubmit = e =>{
     e.preventDefault()
     const dataJSON = JSON.stringify(this.state)
-    
     fetch('/app/editProfile?profile='+encodeURIComponent(dataJSON))
     .then(response => {
       return (response.json())

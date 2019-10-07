@@ -5,6 +5,7 @@ import ProjectData from '../../../components/projectData/projectData'
 import ReaControllersGroup from '../../../components/reaControllersGroup/reaControllersGroup'
 import TeamMembersControls from '../../../components/teamMembersControls/teamMembersControls'
 import TasksControl from '../../../components/taksControl/tasksControl'
+import UserStoriesControls from '../../../components/userStoriesControls/userStoriesControls'
 
 export default class AddProject extends React.Component{
 
@@ -22,7 +23,8 @@ export default class AddProject extends React.Component{
     expected:'',
     reas: [{}],
     teamMembers: [{}],
-    tasks: []
+    tasks: [],
+    userStories:[{}]
   }
 
   document = React.createRef()
@@ -146,6 +148,36 @@ export default class AddProject extends React.Component{
   }
 
 
+ /*---------------- HANDLERS USER STORIES ------------*/
+
+  handleAddUserStories = () =>{
+    let userStories = this.state.userStories
+    userStories.push({})
+    this.setState({
+      userStories
+    }) 
+  }
+
+  handleOnChangeUserStories = (id,{target}) => {
+    const {name, value} = target
+    let userStories = this.state.userStories
+    userStories.forEach((user,i) => {
+      if(i === id){user[name] = value}
+    })
+    this.setState({
+      userStories
+    })
+  }
+
+
+  handleDeleteUserStories = (idToDelete) => {
+    console.log('idToDelete :', idToDelete)
+    this.setState({
+      userStories: this.state.userStories.filter((u,i)=>( idToDelete !== i  ) )
+    })    
+  }
+
+
   encodeObject = o => Object.keys(o).map(
     k=>`${encodeURIComponent(k)}=${encodeURIComponent(o[k])}`
   ).join('&')
@@ -194,21 +226,32 @@ export default class AddProject extends React.Component{
           handleOnChangeUrlVideo={this.handleOnChangeUrlVideo}
         />
 
-        <ReaControllersGroup 
+        <ReaControllersGroup
+          className="box"
           reas={this.state.reas}
           handleAddRea={this.handleAddRea}
           handleDeleteRea={this.handleDeleteRea}
           handleOnChange={this.handleOnChangeRea}
         />
         
-        <TeamMembersControls 
+        <TeamMembersControls
+          className="box"
           members={this.state.teamMembers}
           handleAddMember={this.handleAddMember}
           handleDeleteMember={this.handleDeleteMember}
           handleOnChange={this.handleOnChangeMember}
         />
 
+        <UserStoriesControls
+          className="box" 
+          users={this.state.userStories}
+          handleDeleteUserStories={this.handleDeleteUserStories}
+          handleAddUserStories={this.handleAddUserStories}
+          handleOnChange={this.handleOnChangeUserStories}
+        />
+
         <TasksControl
+          className="box"
           tasks={this.state.tasks}
           handleAddTask={this.handleAddTask}
           handleFinishTask={this.handleFinishTask}

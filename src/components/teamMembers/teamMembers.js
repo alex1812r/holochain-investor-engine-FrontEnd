@@ -4,7 +4,7 @@ import './teamMembers.scss'
 export default function TeamMembers(props){
   
   return(
-    <div className="team-members box">
+    <div className={`team-members ${props.className || ''}`}>
       <h4>Team Members</h4>
       <table>
         <tbody>

@@ -25,9 +25,7 @@ export default function Avatar(props){
             style={{width:`${width}`,height:`${width}`}}
           />
         }
-        {/* <span style={{width:`${width}`,height:`${width}`}}></span> */}
       </div>
-      {/* { props.user && <span>{props.user}</span> } */}
     </div>
   )
 }

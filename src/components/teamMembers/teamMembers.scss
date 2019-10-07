@@ -13,6 +13,7 @@
     }
     td{
       width: 30%;
+      padding: .3rem .5rem;
       & + td + td{ width: 40%; }
       > a{ color:$secondary; text-decoration: none; }
     }

@@ -5,7 +5,7 @@ import RoundedIcon from '../roundedIcon/roundeIcon'
 export default function ReaControllersGroup(props){
   
   return(
-    <div id="rea-controllers-group" className="box">
+    <div id="rea-controllers-group" className={props.className || ''}>
       <h4>Resource Event Agent</h4>
       {
         props.reas &&

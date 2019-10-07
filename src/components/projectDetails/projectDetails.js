@@ -82,7 +82,7 @@ export default class ProjectDetails extends React.Component{
           onClick={this.handleShowModalToInvest} 
           className="btn-primary"> 
           {
-            this.props.investor.Ok 
+            this.props.investor && this.props.investor.Ok 
             ? "Deposit / Withdraw" : "INVEST"
           }
                      

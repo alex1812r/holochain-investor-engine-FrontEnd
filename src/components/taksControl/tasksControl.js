@@ -43,7 +43,7 @@ export default class TasksControl extends React.Component{
     const progress = ((tasksFinished / this.props.tasks.length * 100)||0).toFixed(0)
     
     return(
-      <div className="tasks-control box">
+      <div className={`tasks-control ${this.props.className || '' } `}>
         <h4>Project Tasks</h4>
   
         <ProgressBar 

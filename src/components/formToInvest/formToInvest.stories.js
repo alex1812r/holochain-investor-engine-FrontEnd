@@ -1,6 +1,7 @@
 import React from 'react'
 import FormToInvest from './formToInvest'
+import { storiesOf } from '@storybook/react'
 
-export default { title: 'Form to Invest' }
-
-export const Form = () => <FormToInvest /> 
+storiesOf('Form to Invest',module)
+  .addDecorator( story => <> { story() } </> )
+  .add('Form', () => <FormToInvest />  )

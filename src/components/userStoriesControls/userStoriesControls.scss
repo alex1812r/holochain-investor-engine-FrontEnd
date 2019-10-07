@@ -1,0 +1,39 @@
+@import '../../sass/colors';
+
+.user-stories-controls{
+  > h4{
+    margin-bottom: 1rem;
+  }
+  .user-stories-add-control{
+    text-align: center;
+    > button{
+      display: inline;
+      background: none;
+      border: 0;
+      padding: 0;
+      color:$primary;
+    }
+  }
+  .user-stories{
+    display: flex;
+    margin-bottom: 1rem;
+    .user-stories-inputs{
+      display: flex;
+      justify-content: space-between;
+      width: 0;
+      flex-grow: 1;
+      input{
+        width: 49%;
+      }
+    } 
+  }
+  .user-stories-delete-control{
+    padding: 0 1rem;
+    > button {
+      display: inline;
+      background: none;
+      border: 0;
+      padding: 0;
+    }
+  }
+}
