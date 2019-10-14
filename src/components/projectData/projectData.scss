@@ -1,8 +1,7 @@
+@import '../../sass/colors';
+
 #project-data{
   width: 100%;
-  //border: 1px dashed;
-  //max-height: 100%;
- //height: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -28,6 +27,18 @@
     }
 
    }
-
+   &:first-child + div{
+     > button:first-child{
+       display: block;
+       width: auto;
+       padding: .5rem 0;
+       border:0;
+       background: none;
+       margin: auto;
+       margin-bottom: 1rem;
+       font-size: 1rem;
+       color: $primary;
+     }
+   }
  }
 }

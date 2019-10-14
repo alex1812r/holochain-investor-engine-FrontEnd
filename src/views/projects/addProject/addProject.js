@@ -24,7 +24,7 @@ export default class AddProject extends React.Component{
     reas: [{}],
     teamMembers: [{}],
     tasks: [],
-    userStories:[{}]
+    stories:[{}]
   }
 
   document = React.createRef()
@@ -36,7 +36,8 @@ export default class AddProject extends React.Component{
     this.setState({
       reas: [{}],
       teamMembers: [{}],
-      tasks: []
+      tasks: [],
+      stories : [{}]
     })
   }
 
@@ -151,29 +152,28 @@ export default class AddProject extends React.Component{
  /*---------------- HANDLERS USER STORIES ------------*/
 
   handleAddUserStories = () =>{
-    let userStories = this.state.userStories
-    userStories.push({})
+    let stories = this.state.stories
+    stories.push({})
     this.setState({
-      userStories
+      stories
     }) 
   }
 
   handleOnChangeUserStories = (id,{target}) => {
     const {name, value} = target
-    let userStories = this.state.userStories
-    userStories.forEach((user,i) => {
+    let stories = this.state.stories
+    stories.forEach((user,i) => {
       if(i === id){user[name] = value}
     })
     this.setState({
-      userStories
+      stories
     })
   }
 
 
   handleDeleteUserStories = (idToDelete) => {
-    console.log('idToDelete :', idToDelete)
     this.setState({
-      userStories: this.state.userStories.filter((u,i)=>( idToDelete !== i  ) )
+      userStories: this.state.stories.filter((u,i)=>( idToDelete !== i  ) )
     })    
   }
 
@@ -189,6 +189,8 @@ export default class AddProject extends React.Component{
     toSend.teamMembers = JSON.stringify(toSend.teamMembers)
     toSend.tasks = JSON.stringify(toSend.tasks)
     toSend.reas = JSON.stringify(toSend.reas)
+    toSend.stories = JSON.stringify(toSend.stories) 
+
 
     const url = '/app/newProject?' + this.encodeObject(toSend)
     //console.log('url :', url);
@@ -244,7 +246,7 @@ export default class AddProject extends React.Component{
 
         <UserStoriesControls
           className="box" 
-          users={this.state.userStories}
+          stories={this.state.stories}
           handleDeleteUserStories={this.handleDeleteUserStories}
           handleAddUserStories={this.handleAddUserStories}
           handleOnChange={this.handleOnChangeUserStories}

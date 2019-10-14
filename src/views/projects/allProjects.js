@@ -21,6 +21,7 @@ export default class AllProjects extends React.Component{
 
   render(){
     if(!this.state.projects.length){
+      
       return <SpinnerLoad fullScreen size="big" />
     }
     

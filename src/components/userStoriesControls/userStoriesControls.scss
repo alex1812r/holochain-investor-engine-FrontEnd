@@ -1,8 +1,23 @@
 @import '../../sass/colors';
 
 .user-stories-controls{
-  > h4{
-    margin-bottom: 1rem;
+  > .user-stories-controls-header{
+    display: flex;
+    justify-content: space-between;
+    > h4{
+      margin-bottom: 1rem;
+    }
+    > div{
+      > button{
+        display: inline;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background: none;
+        font-size: 1rem;
+        color: $primary;
+      }
+    }
   }
   .user-stories-add-control{
     text-align: center;

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <input type="text" id="input">
+
+  <script>
+    var x = /[^+\d]/g
+    var input = document.getElementById("input");
+    input.addEventListener('keyup',function(e){
+      let newvalue =""
+      let oldvalue = this.value.replace("-","")
+      let long = oldvalue.length 
+      newvalue = oldvalue.substr(0,4)
+      if(long > 4){
+        newvalue += "-" + oldvalue.substr(4,3)
+      }
+      if(long > 7){
+        newvalue += "-" + oldvalue.substr(7,long)
+      }
+      this.value = newvalue
+    })
+    input.addEventListener('keypress',function(e){
+      if(e.keyCode < 48 || e.keyCode > 57){
+        e.preventDefault()
+      }
+    })
+  </script>
+</body>
+</html>

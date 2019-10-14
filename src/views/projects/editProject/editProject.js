@@ -6,6 +6,7 @@ import ReaControllersGroup from '../../../components/reaControllersGroup/reaCont
 import TeamMembersControls from '../../../components/teamMembersControls/teamMembersControls'
 import TasksControl from '../../../components/taksControl/tasksControl'
 import SpinnerLoad from '../../../components/spinnerLoad/spinnerLoad'
+import UserStoriesControls from '../../../components/userStoriesControls/userStoriesControls'
 
 export default class EditProject extends React.Component{
 
@@ -138,6 +139,35 @@ export default class EditProject extends React.Component{
   }
 
 
+   /*---------------- HANDLERS USER STORIES ------------*/
+
+   handleAddUserStories = () =>{
+    let stories = this.state.stories
+    stories.push({})
+    this.setState({
+      stories
+    }) 
+  }
+
+  handleOnChangeUserStories = (id,{target}) => {
+    const {name, value} = target
+    let stories = this.state.stories
+    stories.forEach((user,i) => {
+      if(i === id){user[name] = value}
+    })
+    this.setState({
+      stories
+    })
+  }
+
+
+  handleDeleteUserStories = (idToDelete) => {
+    this.setState({
+      userStories: this.state.stories.filter((u,i)=>( idToDelete !== i  ) )
+    })    
+  }
+
+
   encodeObject = o => Object.keys(o).map(
     k=>`${encodeURIComponent(k)}=${encodeURIComponent(o[k])}`
   ).join('&')
@@ -149,6 +179,7 @@ export default class EditProject extends React.Component{
     toSend.teamMembers = JSON.stringify(toSend.teamMembers)
     toSend.tasks = JSON.stringify(toSend.tasks)
     toSend.reas = JSON.stringify(toSend.reas)
+    toSend.stories = JSON.stringify(toSend.stories)
 
     const url = '/app/editProject?' + this.encodeObject(toSend)
     //console.log('url :', url);
@@ -196,6 +227,7 @@ export default class EditProject extends React.Component{
           image={this.image}
           handleOnChange={this.handleOnChange}
           handleOnChangeUrlVideo={this.handleOnChangeUrlVideo}
+          edit
         />
 
         <ReaControllersGroup 
@@ -212,6 +244,14 @@ export default class EditProject extends React.Component{
           handleAddMember={this.handleAddMember}
           handleDeleteMember={this.handleDeleteMember}
           handleOnChange={this.handleOnChangeMember}
+        />
+
+        <UserStoriesControls
+          className="box" 
+          stories={this.state.stories}
+          handleDeleteUserStories={this.handleDeleteUserStories}
+          handleAddUserStories={this.handleAddUserStories}
+          handleOnChange={this.handleOnChangeUserStories}
         />
 
         <TasksControl

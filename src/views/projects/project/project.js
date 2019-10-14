@@ -10,7 +10,8 @@ export default class Project extends React.Component{
 
   state = {
     investor:{},
-    project:{}
+    project:{},
+    owner: {}
   }
   
   componentDidMount(){
@@ -19,10 +20,10 @@ export default class Project extends React.Component{
       .then(response => response.json())
       .then(data => {
           if(data.Ok){ 
-              //console.log('Response Data:',data)
               this.setState({
                   investor:data.investor,
-                  project: data.project
+                  project: data.project,
+                  owner: data.owner
               }) 
            }else{ 
                //console.log(data)
@@ -66,7 +67,8 @@ export default class Project extends React.Component{
 
   handleRetire = data => {
     if(Object.keys(this.state.project).length){
-      const url = `/app/withdraw?name=${this.state.project.name || this.state.project._id}&amount=${data.amount}&paymentOption=${data.paymentOption}`
+      const req = this.state.owner.Ok ? 'withdrawOwner' : 'withdraw'
+      const url = `/app/${req}?name=${this.state.project.name || this.state.project._id}&amount=${data.amount}&paymentOption=${data.paymentOption}`
 
       fetch(url)
       .then(response => ( response.json() ))
@@ -99,7 +101,6 @@ export default class Project extends React.Component{
   }
   
   render(){
-    
     if(!Object.keys(this.state.project).length){
       return <SpinnerLoad fullScreen size="big" />  
     }
@@ -130,11 +131,13 @@ export default class Project extends React.Component{
             handleRetire={this.handleRetire}
             handleDeposit={this.handleDeposit}
             investor={this.state.investor}
+            owner={this.state.owner}
           />
         </div>
         
         <div>
-          <TeamMembers 
+          <TeamMembers
+            className="box"
             members={this.state.project.teamMembers}
           />
         </div>

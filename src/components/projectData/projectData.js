@@ -58,6 +58,13 @@ export default function ProjectData(props){
       </div>
       
       <div>
+        {
+          props.edit &&
+          <button onClick={getHelp} type="button">
+            Get help to submit my crowfounding page
+          </button>
+        }
+
         <InputFIle 
           label="UPLOAD DOCUMENT"
           accept="application/pdf"
@@ -125,7 +132,7 @@ export default function ProjectData(props){
         />
 
         <textarea 
-          rows="6"
+          rows={props.edit ? "3" : "6"}
           name="expected"
           value={props.expected}
           placeholder="Expected Outcome"
@@ -134,4 +141,12 @@ export default function ProjectData(props){
       </div>
     </div>
   )
+}
+
+function getHelp(){
+  fetch('/app/creatingHelp')
+  .then(r => r.json())
+  .then(data => {
+    data.Ok ? alert('petition sent') : alert('petition no sent')
+  })
 }
