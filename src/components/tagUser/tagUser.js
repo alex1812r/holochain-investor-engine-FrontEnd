@@ -12,7 +12,9 @@ export default function TagUser(props){
       <div className="name-follow">
         <div>
           <span>Prefered Name - <a href="/">{props.username}</a></span>
-          <button className="btn-secondary">Follow</button>
+            
+            {/* <button className="btn-secondary">Follow</button> */}
+          
         </div>
         <span><i className="fas fa-map-marker-alt"></i> {props.address}</span>
       </div>

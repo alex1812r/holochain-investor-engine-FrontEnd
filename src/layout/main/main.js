@@ -11,6 +11,7 @@ import EditProject from '../../views/projects/editProject/editProject'
 import Project from '../../views/projects/project/project'
 import Earning from '../../views/earning/earning'
 import Wallet from '../../views/wallet/wallet'
+import Notifications from '../../views/notifications/notifications'
 
 export default function Main(){
   return(
@@ -26,6 +27,7 @@ export default function Main(){
           <Route exact path="/editProject/:id" render={({match})=>(<EditProject id={match.params.id} />)}/>
           <Route exact path="/earning" >{<Earning />}</Route>
           <Route exact path="/wallet" >{<Wallet />}</Route>
+          <Route exact path="/notifications">{<Notifications />}</Route>
         </Switch>
       </section>
     </div>

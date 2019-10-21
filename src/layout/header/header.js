@@ -19,7 +19,7 @@ function header(props){
           <nav>
             <a href="/">Home</a>
             <NavLink to="/projects">Projects</NavLink>
-            <a href="/">Notifications</a>
+            <NavLink to="/notifications">Notifications</NavLink>
             <a href="/">User</a>
             <button onClick={props.logOut} >log out</button>
           </nav>

@@ -1,0 +1,34 @@
+@import '../../sass/colors';
+
+.table-members{
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  padding: 1rem;
+  overflow-y: auto;
+  > h4{
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+  }
+  > div{
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+    border-bottom: 1px solid #ccc5;
+  }
+  .table-members-member{
+    //border:1px dashed;
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+    > div + div{
+      //border: 1px dashed red;
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      margin-left: .5rem;
+      span{ color: $primary }
+      button{ width: 100px; }
+    }
+  }
+}

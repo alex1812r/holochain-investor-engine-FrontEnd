@@ -42,8 +42,10 @@ class EditProfile extends React.Component {
     })
     .then(data => {
       console.log('response data: ',data)
-      data.Ok ? this.props.editProfile(this.state)
-      : console.log('response data:',data)
+      if(data.Ok){
+        alert('Profile edited')
+        this.props.editProfile(this.state) 
+      } else{ console.log('response data:',data) }
     })
   }
 

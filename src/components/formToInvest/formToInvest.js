@@ -8,7 +8,7 @@ export default function FormToInvest(props){
   if(props.paymentOption && props.owner){
     Object.keys(props.owner).forEach(key => {
       if(props.paymentOption.toLowerCase() === key.toLowerCase()){
-        console.log(props.owner[key])
+        //console.log(props.owner[key])
         wallet = props.owner[key].toString() 
       }
     })

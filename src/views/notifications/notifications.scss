@@ -1,0 +1,10 @@
+@import '../../sass/colors';
+
+#notifications{
+  h4{ color: $primary; margin-bottom: 1rem; font-size: 1.2rem;}
+  > div{
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+    border-bottom:1px solid #ccc5;
+  }
+}

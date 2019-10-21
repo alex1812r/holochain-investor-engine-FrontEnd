@@ -25,6 +25,12 @@ class Hie extends React.Component {
   }
   
   render(){
+    setTimeout(()=>{
+      this.setState({
+        loading: false,
+      })
+    }, 5000)
+    
     if(this.state.loading){
       
       return (

@@ -5,6 +5,7 @@
   overflow: hidden;
   position: relative;
   max-height: 100%;
+  background: #fff;
   -webkit-box-shadow: 0px 0px 5px 0px $default;
   -moz-box-shadow: 0px 0px 5px 0px $default;
   box-shadow: 0px 0px 5px 0px $default;
@@ -22,7 +23,6 @@
       z-index: 100;
       //i{color: $default;}
     }
-    
   }
   
   #sidebar-wrap{    
@@ -89,6 +89,14 @@
     #sidebar-wrap{
       transition: 2s;
       opacity: 1;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    position: absolute;
+    z-index: 100;
+    &.active{
+      width: 20em;
     }
   }
 

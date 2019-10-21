@@ -11,7 +11,8 @@ export default class Project extends React.Component{
   state = {
     investor:{},
     project:{},
-    owner: {}
+    owner: {},
+    memberOwners: []
   }
   
   componentDidMount(){
@@ -19,11 +20,10 @@ export default class Project extends React.Component{
       fetch(`/app/getProject?id=${this.props.id}`)
       .then(response => response.json())
       .then(data => {
-          if(data.Ok){ 
+          if(data.Ok){
+            const { project, investor, owner, memberOwners } = data 
               this.setState({
-                  investor:data.investor,
-                  project: data.project,
-                  owner: data.owner
+                  project,investor,owner, memberOwners
               }) 
            }else{ 
                //console.log(data)
@@ -132,6 +132,7 @@ export default class Project extends React.Component{
             handleDeposit={this.handleDeposit}
             investor={this.state.investor}
             owner={this.state.owner}
+            memberOwners={this.state.memberOwners}
           />
         </div>
         

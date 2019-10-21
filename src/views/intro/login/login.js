@@ -31,9 +31,12 @@ class Login extends React.Component{
     fetch(url,{
       credentials:"include"
     })
-    .then(response => (
-      response.json()
-    ))
+    .then(response => {
+      if(response.status !== 200){
+        return { Error: response.statusText }
+      }
+      return response.json()
+    })
     .then(data => {
       if(data.Error){
       
@@ -56,7 +59,7 @@ class Login extends React.Component{
     })
   }
   render(){
-    // const {email,password,msj} = this.state
+    
     return(
       <form id="login" className="box" onSubmit={this.handleOnSignIn}>
         <h2>Login</h2>

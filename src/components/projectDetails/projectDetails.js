@@ -4,12 +4,14 @@ import ProgressBar from  '../progressBar/progressBar'
 import Modal from '../../components/modal/modal'
 import TeamRea from '../teamRea/teamRea'
 import FormToInvest from '../formToInvest/formToInvest'
+import TableMember from '../tableMember/tableMember'
 
 export default class ProjectDetails extends React.Component{
 
   state = {
     viewRea:false,
     toInvest:false,
+    viewMembers: false,
     dataToInvest:{ 
       amount: '',
       paymentOption: '',
@@ -36,6 +38,12 @@ export default class ProjectDetails extends React.Component{
   handleShowModalToInvest = () => {
     this.setState({
       toInvest: this.state.toInvest ? false : true
+    })
+  }
+  
+  handleShowMembers = () => {
+    this.setState({
+      viewMembers: this.state.viewMembers ? false : true
     })
   }
 
@@ -134,7 +142,16 @@ export default class ProjectDetails extends React.Component{
           onClick={this.handleShowModal}
           type="button" 
           className="btn-primary">
-        Resource Event Agent Log
+          Resource Event Agent Log
+        </button>
+
+        <button
+          style={{marginTop:`1em`}}
+          onClick={this.handleShowMembers}
+          type="button"
+          className="btn-primary"
+        >
+          Members
         </button>
   
         <Modal 
@@ -163,6 +180,17 @@ export default class ProjectDetails extends React.Component{
             <TeamRea 
               team={this.props.reas}
             />
+        </Modal>
+
+        <Modal
+          hide={this.handleShowMembers}
+          active={this.state.viewMembers}
+          size="md"
+        >
+          <TableMember
+            title="Member Owners" 
+            members={this.props.memberOwners}
+          />
         </Modal>
 
       </div>

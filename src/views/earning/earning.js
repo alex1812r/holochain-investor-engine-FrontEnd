@@ -6,24 +6,35 @@ export default class Earning extends React.Component{
 
   state = {
     projects: [],
+    loading: true
   }
 
   componentDidMount(){
     fetch('/app/myProjects')
     .then(r => r.json())
     .then(data => {
-      console.log('data :', data);
+      //console.log('data :', data);
       if(data.Ok){
         this.setState({
-          projects: data.projects
+          projects: data.projects,
+          loading: false
         }) 
       }
+      
     })
   }
 
   render(){
-    if(!this.state.projects.length){
+    if(this.state.loading){
+      setTimeout(()=>{
+        this.setState({ loading: false }) 
+      }, 5000)
+
       return <SpinnerLoad fullScreen size="big" />
+    }
+
+    if(!this.state.projects.length){
+      return <>you have no invesment activities</>
     }
 
     let lists = {}
