@@ -26,10 +26,6 @@ export default class Earning extends React.Component{
 
   render(){
     if(this.state.loading){
-      setTimeout(()=>{
-        this.setState({ loading: false }) 
-      }, 5000)
-
       return <SpinnerLoad fullScreen size="big" />
     }
 
