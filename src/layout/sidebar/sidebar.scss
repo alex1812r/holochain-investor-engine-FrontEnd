@@ -53,6 +53,11 @@
           margin-right: 5px;
         }
         //border:1px dashed red;
+        &.icon-rotate{
+          img{
+            transform: rotate(180deg);
+          }
+        }
       }
       a,button{
         text-decoration: none;

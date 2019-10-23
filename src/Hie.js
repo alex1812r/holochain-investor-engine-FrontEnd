@@ -17,10 +17,8 @@ class Hie extends React.Component {
     .then(response => (response.json()))
     .then(data => {
       this.setState({loading:false})
-      //console.log(data)
       data.Ok &&
-       this.props.isLogged(data.user)
-      // console.log(data)
+       this.props.isLogged()
     })
   }
   

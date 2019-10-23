@@ -13,13 +13,9 @@ export default function UserStats(props){
         <span className="stat-counter">{props.following || 0}</span>
         <span>Following</span>
       </div>
-      <div>
+      <div style={{width:`100%`}}>
         <span className="stat-counter">{props.projects || 0}</span>
         <span>Projects Active</span>
-      </div>
-      <div>
-        <span className="stat-counter">{props.earned || 0}</span>
-        <span>Followers</span>
       </div>
       <div className="stat-rating">
         <Stars 

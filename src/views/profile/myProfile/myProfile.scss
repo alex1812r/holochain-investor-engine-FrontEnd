@@ -12,11 +12,23 @@
       > .data{
         width: 0;
         flex-grow: 1;
-        //border:1px dashed red;
-        //width: 65%;
+        #user-data-earning-stats{
+          margin-top: 1.5rem;
+          display: flex;
+          justify-content: space-between;
+          > div{ 
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+            > span{ font-size: 1.2rem; }
+          }
+        }
       }
       > .stats{
         width: 100%;
+        padding-left: 1rem;
+        border-left: 1px solid #ccc5;
+        margin-left: 1rem; 
         @media (min-width: 992px) {
           width: 35%;
         }

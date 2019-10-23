@@ -1,0 +1,35 @@
+@import '../../sass/colors';
+
+#investments{
+  
+  .project-investments-list{
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 1rem;
+
+    > h4{
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      padding: 0 1.5rem;
+      *{color: $primary;}
+      a{ text-decoration: none; }
+    }
+    table{
+      width: 100%;  
+      text-align: left;
+      border-collapse: collapse;
+      @media (max-width:991px) {
+        display: block;
+        overflow-x: auto;
+      }
+      th{  
+        padding: .5rem 1.5rem;
+        background: rgba(#ccc,.2);
+      }
+      td{
+        padding: 1rem 1.5rem;
+        border-bottom: .5px solid rgba(#ccc,.5);
+      }
+    }
+  }
+}

@@ -12,13 +12,18 @@
       display: block;
     }
     &.stat-rating{
+      border-top: 1px solid #ccc5;
+      padding-top: .5rem;  
       width: 100%;
     }
   }
-  .stat-counter{
-    font-size: 20px;
+  span{
+    font-size: 1.1rem;
     font-weight: bold;
+  }
+  .stat-counter{
     margin-bottom: .5rem;
+    font-size: 1.2rem;
   }
 
 }

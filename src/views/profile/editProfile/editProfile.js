@@ -11,8 +11,12 @@ class EditProfile extends React.Component {
   state = {}
 
   componentDidMount() {
-    this.setState({
-      ...this.props
+    fetch('/app/myProfile')
+    .then(response => (response.json()))
+    .then(data => {
+      if(data.Ok){
+        this.setState({...data.user})
+      }
     })
   }
 

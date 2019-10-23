@@ -43,7 +43,13 @@ export default class Sidebar extends React.Component {
       {
         title:'Earning',
         icon:IconEarning,
-        url:'/earning'
+        url:'/earning',
+      },
+      {
+        title:'Investments',
+        icon:IconEarning,
+        url:'/investments',
+        className:'icon-rotate'
       },
       {
         title:'Taks',
@@ -115,6 +121,7 @@ function NavItemsGroup(props) {
             icon={ni.icon}
             url={ni.url}
             submenu={ni.submenu}
+            className={ni.className}
           />
         ))
       }
@@ -143,7 +150,7 @@ class NavItem extends React.Component{
         ?
           <>
           <button 
-            className="nav-item" 
+            className={`nav-item ${this.props.className || ''}`}
             onClick={this.handleExpand}>
             <img src={this.props.icon || ''} alt="" />
             {this.props.title}
@@ -161,7 +168,7 @@ class NavItem extends React.Component{
           </div>
           </>
         :
-        <NavLink className="nav-item" to={this.props.url ? this.props.url : '/' }>
+        <NavLink className={`nav-item ${this.props.className || ''}`} to={this.props.url ? this.props.url : '/' }>
           {this.props.icon && <img src={this.props.icon} alt=""/> }
           {this.props.title && this.props.title}
         </NavLink>
