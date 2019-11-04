@@ -21,10 +21,10 @@ export default class AddProject extends React.Component{
     projectstart:'',
     projectend:'',
     expected:'',
-    reas: [{}],
-    teamMembers: [{}],
+    reas: [],
+    teamMembers: [],
     tasks: [],
-    stories:[{}]
+    stories:[]
   }
 
   document = React.createRef()
@@ -173,7 +173,7 @@ export default class AddProject extends React.Component{
 
   handleDeleteUserStories = (idToDelete) => {
     this.setState({
-      userStories: this.state.stories.filter((u,i)=>( idToDelete !== i  ) )
+      stories: this.state.stories.filter((u,i)=>( idToDelete !== i  ) )
     })    
   }
 
@@ -212,7 +212,7 @@ export default class AddProject extends React.Component{
       : console.log('data :', data);
     })
     
-   this.handleResetForm(e)
+   //this.handleResetForm(e)
 
   }
   
