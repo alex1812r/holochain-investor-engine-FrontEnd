@@ -35,6 +35,36 @@ class myProfile extends React.Component{
     })
   }
 
+  handleToDelete = idToDelete => {
+    const valid = window.confirm('are you sure?')
+    if(valid){
+
+      fetch(`/app/deleteProject?idProject=${idToDelete}`)
+      .then(r => {
+        if(r.status !== 200){
+          return { Ok: false, error: r.statusText }
+        }
+        return r.json()
+      })
+      .then( data => {
+        if(data.Ok){
+          const projects = this.state.user.projects.filter(p => ( p._id !== idToDelete ))
+          this.setState({
+            user: {
+              ...this.state.user,
+              projects
+            }
+          })
+        }
+        console.log(data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    
+    }
+  }
+
   render(){
     if(this.state.loading){
       return <SpinnerLoad fullScreen size="big" />
@@ -102,7 +132,7 @@ class myProfile extends React.Component{
             projects={ this.state.user.projects }
             toAdd
             edit
-            delete
+            delete={this.handleToDelete}
           />
         </section>
       </div>

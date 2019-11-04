@@ -61,7 +61,7 @@ export default function ProjectCard(props){
               
               {
                 props.delete && 
-                <button type="button">
+                <button type="button" onClick={()=>{props.delete(props.id)}}>
                   <RoundedIcon
                     icon={<i className="far fa-trash-alt"></i>}
                   />
