@@ -68,7 +68,7 @@ class EditProfile extends React.Component {
             />
           </section>
           <section className="box">
-            <h4>WorkExperience</h4>
+            <h4>Work Experience</h4>
             <TagEditWorkExperience
               role={this.state.workExperience && this.state.workExperience.role}
               company={this.state.workExperience && this.state.workExperience.company}

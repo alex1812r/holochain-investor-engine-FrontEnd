@@ -4,8 +4,8 @@ import '../../sass/global.scss'
 
 export default function FormToInvest(props){
   let wallet = false
-
-  if(props.paymentOption && props.owner){
+  console.log('props :', props)
+  if(props.paymentOption && props.owner && props.owner.Ok){
     Object.keys(props.owner).forEach(key => {
       if(props.paymentOption.toLowerCase() === key.toLowerCase()){
         //console.log(props.owner[key])
@@ -13,7 +13,7 @@ export default function FormToInvest(props){
       }
     })
 
-  }else if(props.paymentOption && props.investor){
+  }else if(props.paymentOption && props.investor && props.investor.Ok){
     Object.keys(props.investor).forEach(key => {
       if(props.paymentOption.toLowerCase() === key.toLowerCase()){
         wallet = props.investor[key].toString()
