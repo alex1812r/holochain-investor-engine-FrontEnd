@@ -3,16 +3,45 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './login.scss'
 import SpinnerLoad from '../../../components/spinnerLoad/spinnerLoad' 
+import SimpleReactValidator from 'simple-react-validator';
 
 class Login extends React.Component{
 
-  state ={
-    loading:false,
-    message:'',
+  constructor(props){
+    super(props);
+    this.state ={
+      loading:false,
+      message:'',
+      user:'',
+      password:''
+    }
+    this.validator = new SimpleReactValidator({
+      element: message => <div className="text-danger-login">{message}</div>,
+    });
   }
+
+  
 
   email = React.createRef()
   password = React.createRef()
+
+  submitForm = (e) => {
+    e.preventDefault();
+
+    if( this.validator.allValid() ){
+      this.handleOnSignIn();
+    } else {
+      this.validator.showMessages();
+      this.forceUpdate();
+    }
+  }
+
+  setStateFromInput = (e) => {
+    e.preventDefault();
+    var obj = {};
+    obj[e.target.name] = e.target.value;
+    this.setState(obj);
+  }
 
   handleOnSignIn = (e) => {
     e.preventDefault()
@@ -61,26 +90,29 @@ class Login extends React.Component{
   render(){
     
     return(
-      <form id="login" className="box" onSubmit={this.handleOnSignIn}>
+      <form id="login" className="box" onSubmit={this.submitForm}>
         <h2>Login</h2>
         
         <label htmlFor="user-email">User</label>
         <input 
           ref={this.email}
           type="text" 
-          name="user-email" 
+          name="user" 
           id="user-email"
-          required
+          onChange={this.setStateFromInput}
         />
+        {this.validator.message('user', this.state.user, 'required|email')}
 
         <label htmlFor="user-password">Password</label>
         <input
           ref={this.password}
           type="password" 
-          name="user-password" 
+          name="password" 
           id="user-password"
-          required
+          onChange={this.setStateFromInput}
         />
+        {this.validator.message('password', this.state.password, 'required')}
+          
 
         <div id="login-controls">
           <div>
