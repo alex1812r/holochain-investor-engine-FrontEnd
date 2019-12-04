@@ -20,6 +20,9 @@ class Hie extends React.Component {
       data.Ok &&
        this.props.isLogged()
     })
+    .catch(err=>{
+      console.log('err', err)
+    })
   }
   
   render(){
