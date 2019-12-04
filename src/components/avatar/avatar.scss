@@ -11,7 +11,7 @@
     width: 100%;
     //margin-bottom: 10px;
 
-    > span , > img{
+    > img{
       position: relative;
       display: inline-block;
       border-radius: 50%;
@@ -21,7 +21,11 @@
         border:2px solid $primary;
       }
     }
-
+    > label {
+      font-weight: bold;
+      color: $primary;
+      display: block;
+    }
   }
  
   // > span{

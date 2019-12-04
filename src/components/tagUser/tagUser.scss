@@ -12,13 +12,23 @@
     width: 0;
     flex-grow: 1;
     padding-left: 1rem;
-    //border:1px dashed black; 
-    > div{
-      //border:1px dashed blue;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: .2rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    // align-items: center;
+    // border:1px dashed black;
+    > .name-addres{
+      flex-grow: 1;
+      p{
+        &:first-child {
+          font-weight: bold;
+          margin-bottom: 1rem;
+        }
+        &:last-child i{
+          margin-right: 5px;
+          color:#ccc;
+        }
+      }
       a{
         text-decoration: none;
         color: $primary;
@@ -27,10 +37,18 @@
         padding: .5rem  2.5rem;
       }
     }
-
-    > span i{
-      color:#ccc;
-      margin-right: 5px;
+    > .follows {
+      // border: 1px dashed red;
+      display: flex;
+      justify-content: space-around;
+      width: 45%;
+      > div{
+        // border: 1px dashed blue;
+        text-align: center;
+        > button { 
+          min-width: 125px;
+        }
+      }
     }
   }
 

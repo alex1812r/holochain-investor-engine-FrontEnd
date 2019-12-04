@@ -10,13 +10,24 @@ export default function TagUser(props){
         active
       />
       <div className="name-follow">
-        <div>
-          <span>Prefered Name - <a href="/">{props.username}</a></span>
-            
-            {/* <button className="btn-secondary">Follow</button> */}
-          
+        <div className="name-addres">
+          <p>Prefered Name - <a href="/">{props.username}</a></p>
+          <p><i className="fas fa-map-marker-alt"></i> {props.address}</p>
         </div>
-        <span><i className="fas fa-map-marker-alt"></i> {props.address}</span>
+        
+        <div className="follows">
+          <div>
+            <span>0</span>
+            <p>Following</p>
+          </div>
+          <div>
+            <span>0</span>
+            <p>Followers</p>
+          </div>
+          <div>
+            <button className="btn-secondary">FOLLOW</button>
+          </div>
+        </div>
       </div>
       <p>
         {props.description}

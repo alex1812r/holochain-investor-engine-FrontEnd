@@ -95,6 +95,7 @@ export default class Sidebar extends React.Component {
             width="110px"
             user="UserName"
             image={IconAvatar}
+            username="username"
           />
 
           <NavItemsGroup 

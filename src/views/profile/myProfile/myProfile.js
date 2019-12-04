@@ -3,7 +3,6 @@ import './myProfile.scss'
 import {connect} from 'react-redux'
 
 import TagUser from '../../../components/tagUser/tagUser'
-import UserStats from '../../../components/userStats/userStats';
 import ProjectsGroup from '../../../components/projectsGroup/projectsGroup'
 import SpinnerLoad from '../../../components/spinnerLoad/spinnerLoad';
 
@@ -102,14 +101,14 @@ class myProfile extends React.Component{
             </div>
           </div>
   
-          <div className="stats">
+          {/* <div className="stats">
             <UserStats 
               followers={this.state.user.followersCont}
               following={this.state.user.followingCont}
               projects={this.state.user.projectsCont}
               earned={false}
             />
-          </div>
+          </div> */}
   
         </section>
   

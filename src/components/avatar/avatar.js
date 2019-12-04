@@ -25,6 +25,10 @@ export default function Avatar(props){
             style={{width:`${width}`,height:`${width}`}}
           />
         }
+        {
+          props.username &&
+            <label>{props.username}</label>
+        }
       </div>
     </div>
   )
