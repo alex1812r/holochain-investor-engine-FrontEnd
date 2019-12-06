@@ -15,12 +15,13 @@
 
     & + label{
       position: fixed;
-      top: 5.5rem;
+      // top: 5.5rem;
       left: .5rem;
       //padding: 3px 8px;
       //background: #ccc5;
       cursor: pointer;
       z-index: 100;
+      margin-top: 1rem;
       //i{color: $default;}
     }
   }

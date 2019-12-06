@@ -44,7 +44,7 @@ class Login extends React.Component{
   }
 
   handleOnSignIn = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     this.setState({
       loading:true
     })
@@ -67,6 +67,7 @@ class Login extends React.Component{
       return response.json()
     })
     .then(data => {
+      console.log('data :', data);
       if(data.Error){
       
         this.setState({
@@ -74,16 +75,14 @@ class Login extends React.Component{
           message: data.Error
         })
       
-      } else if(data.valid){
-      
-        this.props.signIn(data.user)
-      
-      }else{
+      } else if(!data.valid){
         this.setState({
-          loading:false,
-          message: "Password invalid"
-        }) 
-      }
+          loading: false,
+          message: 'Password Invalid',
+        })
+      }else if(data.fa){
+        const cod = window.prompt('ingrese codigo 2F')
+      }else { this.props.signIn(data.user) }
 
     })
   }
